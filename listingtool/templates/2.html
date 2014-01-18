@@ -1,0 +1,298 @@
+﻿<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	<h3>Add Item</h3>
+</div>
+<div class="modal-body">
+    <form id="additem" class="form-horizontal" onsubmit="return ListingTool.Form.Update(this);" method="post" action="/tool/item/add/" target="_self">
+    {% csrf_token %}
+	<div class="form-group">
+	    <label for="Title" class="col-sm-2 control-label">Title</label>
+	    <div class="col-sm-8">
+		<input type="text" class="form-control" name="Title" placeholder="Title" check-type="required">
+	    </div>
+	</div>
+	
+	<div class="form-group">
+	    <label for="Description" class="col-sm-2 control-label">Description</label>
+	    <div class="col-sm-8">
+		<textarea rows="4" class="form-control" name="Description" placeholder="Description" check-type="required">Description</textarea>
+	    </div>
+	</div>
+	
+	<div class="form-group">
+	    <label for="CategoryID" class="col-sm-2 control-label">CategoryID</label>
+	    <div class="col-sm-2">
+		<input type="text" class="form-control" name="CategoryID" placeholder="CategoryID" value="20936" check-type="required">
+	    </div>
+	</div>
+	
+	<div class="form-group">
+	    <label for="ConditionID" class="col-sm-2 control-label">ConditionID</label>
+	    <div class="col-sm-2">
+		<input type="text" class="form-control" name="ConditionID" placeholder="ConditionID" value="1000" check-type="required">
+	    </div>
+	</div>
+	
+	<div class="form-group">
+	    <label for="StartPrice" class="col-sm-2 control-label">StartPrice</label>
+	    <div class="col-sm-2">
+		<input type="text" class="form-control" name="StartPrice" placeholder="StartPrice" check-type="required">
+	    </div>
+	</div>
+	
+	<div class="form-group">
+	    <label for="CategoryMappingAllowed" class="col-sm-2 control-label">Category Mapping Allowed</label>
+	    <div class="col-sm-2">
+		<select name="CategoryMappingAllowed" class="form-control" check-type="required">
+		    <option value="true">True</option>
+		    <option value="false">False</option>
+		</select>
+	    </div>
+	</div>
+	
+	<div class="form-group">
+	    <label for="Country" class="col-sm-2 control-label">Country</label>
+	    <div class="col-sm-2">
+		<select name="Country" class="form-control" check-type="required">
+		    <option value="US">US</option>
+		</select>
+	    </div>
+	</div>
+	
+	<div class="form-group">
+	    <label for="Currency" class="col-sm-2 control-label">Currency</label>
+	    <div class="col-sm-2">
+		<select name="Currency" class="form-control" check-type="required">
+		    <option value="USD">USD</option>
+		</select>
+	    </div>
+	</div>
+	
+	<div class="form-group">
+	    <label for="DispatchTimeMax" class="col-sm-2 control-label">Dispatch Time Max</label>
+	    <div class="col-sm-2">
+		<input type="text" class="form-control" placeholder="Dispatch Time Max" name="DispatchTimeMax" value="3" check-type="required">
+	    </div>
+	</div>
+	
+	<div class="form-group">
+	    <label for="ListingDuration" class="col-sm-2 control-label">Listing Duration</label>
+	    <div class="col-sm-2">
+		<select name="ListingDuration" class="form-control" check-type="required">
+		    <option value="Days_1">1 Dday</option>
+		    <option value="Days_3">3 Ddays</option>
+		    <option value="Days_5">5 Ddays</option>
+		    <option value="Days_7" selected="true">7 Ddays</option>
+		    <option value="Days_10">10 Ddays</option>
+		    <option value="Days_14">14 Ddays</option>
+		    <option value="Days_21">21 Ddays</option>
+		    <option value="Days_30">30 Ddays</option>
+		    <option value="Days_60">60 Ddays</option>
+		    <option value="Days_90">90 Ddays</option>
+		    <option value="Days_120">120 Ddays</option>
+		    <option value="GTC">Good 'Til Cancelled</option>
+		</select>
+	    </div>
+	</div>
+	
+	<div class="form-group">
+	    <label for="ListingType" class="col-sm-2 control-label">Listing Type</label>
+	    <div class="col-sm-3">
+		<select name="ListingType" class="form-control" check-type="required">
+		    <option value="AdType">Ad Type</option>
+		    <option value="Auction">Auction</option>
+		    <option value="Chinese" selected="true">Chinese</option>
+		    <option value="CustomCode">Custom Code</option>
+		    <option value="FixedPriceItem">Fixed Price Item</option>
+		    <option value="Half">Half</option>
+		    <option value="LeadGeneration">Lead Generation</option>
+		    <option value="PersonalOffer">Personal Offer</option>
+		    <option value="Unknown">Unknown</option>
+		    
+		</select>
+	    </div>
+	</div>
+	
+	<div class="form-group">
+	    <label for="PaymentMethods" class="col-sm-2 control-label">Payment Methods</label>
+	    <div class="col-sm-3">
+		<select name="PaymentMethods" class="form-control" check-type="required">
+		    <option value="AmEx">American Express</option>
+		    <option value="CashInPerson">Cash-in-person option</option>
+		    <option value="CashOnPickup">Cash On Pickup</option>
+		    <option value="CCAccepted">Credit card(Not applicable to Real Estate or US/CA eBay Motors listings)</option>
+		    <option value="COD">Cash on delivery</option>
+		    <!--<option value="CODPrePayDelivery">Reserved for future use</option>-->
+		    <option value="CreditCard">Credit Card</option>
+		    <option value="Diners">Diners</option>
+		    <option value="DirectDebit">Direct Debit</option>
+		    <option value="Discover">Discover card(Not applicable to US/CA eBay Motors listings)</option>
+		    <option value="MOCC">Money order/cashiers check(Not applicable to US/CA eBay Motors listings)</option>
+		    <option value="MoneyXferAccepted">Direct transfer of money(Not applicable to US/CA eBay Motors listings)</option>
+		    <option value="None">None</option>
+		    <option value="Other">Other</option>
+		    <option value="OtherOnlinePayments">Other Online Payments</option>
+		    <option value="PaymentSeeDescription">Payment See Description</option>
+		    <option value="PayPal" selected="true">PayPal</option>
+		    <option value="PersonalCheck">PersonalCheck</option>
+		    <option value="VisaMC">Visa/Mastercard(Not applicable to US/CA eBay Motors listings)</option>	    
+		</select>
+	    </div>
+	</div>
+	
+	<div class="form-group">
+	    <label for="PayPalEmailAddress" class="col-sm-2 control-label" >Email</label>
+	    <div class="col-sm-8">
+		<input type="email" class="form-control" name="PayPalEmailAddress" placeholder="PayPal Email Address" check-type="mail required">
+	    </div>
+	</div>
+	
+	<div class="form-group">
+	    <label for="PostalCode" class="col-sm-2 control-label">PostalCode</label>
+	    <div class="col-sm-2">
+		<input type="text" class="form-control" name="PostalCode" placeholder="Postal Code" value="95125" check-type="number required">
+	    </div>
+	</div>
+	
+	<div class="form-group">
+	    <label for="Quantity" class="col-sm-2 control-label">Quantity</label>
+	    <div class="col-sm-2">
+		<input type="text" class="form-control" name="Quantity" placeholder="Quantity" value="1" check-type="number required">
+	    </div>
+	</div>
+	
+	<div class="form-group">
+	    <label for="Site" class="col-sm-2 control-label">Site</label>
+	    <div class="col-sm-2">
+		<select name="Site" class="form-control" check-type="required">
+		    <option value="US">US</option>
+		</select>
+	    </div>
+	</div>
+	
+	<hr>
+	<h2>Return Policy</h2>
+	    <div class="form-group">
+		<label for="ReturnsAcceptedOption" class="col-sm-2 control-label">ReturnsAcceptedOption</label>
+		<div class="col-sm-3">
+		    <select name="ReturnsAcceptedOption" class="form-control" check-type="required">
+			<option value="ReturnsAccepted" >ReturnsAccepted</option>
+		    </select>
+		</div>
+	    </div>
+	    
+	    <div class="form-group">
+		<label for="RefundOption" class="col-sm-2 control-label">Returns Option</label>
+		<div class="col-sm-3">
+		    <select name="RefundOption" class="form-control" check-type="required">
+			<option value="Exchange">Exchange</option>
+			<option value="MoneyBack" selected="true">Money Back</option>
+			<option value="MoneyBackOrExchange" >Money Back Or Exchange</option>
+			<option value="MoneyBackOrReplacement">Money Back Or Replacement</option>
+		    </select>
+		</div>
+	    </div>
+	    
+	    <div class="form-group">
+		<label for="ReturnsWithinOption" class="col-sm-2 control-label">Returns Within Option</label>
+		<div class="col-sm-3">
+		    <select name="ReturnsWithinOption" class="form-control" check-type="required">
+			<option value="Days_3">3 Days</option>
+			<option value="Days_7" >7 Days</option>
+			<option value="Days_10">10 Days</option>
+			<option value="Days_14">14 Days</option>
+			<option value="Days_30" selected="true">30 Days</option>
+			<option value="Days_60">60 Days</option>
+			<option value="Months_1">1 Month</option>
+		    </select>
+		</div>
+	    </div>
+	    
+	    
+	    <div class="form-group">
+		<label for="ReturnPolicyDescription" class="col-sm-2 control-label">Description</label>
+		<div class="col-sm-8" >
+		    <textarea rows="4" class="form-control" name="ReturnPolicyDescription" placeholder="Return Policy Description" check-type="required">If you are not satisfied, return it for refund.</textarea>
+		</div>
+	    </div>
+	    
+	    <div class="form-group">
+		<label for="ShippingCostPaidByOption" class="col-sm-2 control-label">Shipping Cost Paid</label>
+		<div class="col-sm-3">
+		    <select name="ShippingCostPaidByOption" class="form-control" check-type="required">
+			<option value="Buyer" >Buyer</option>
+		    </select>
+		</div>
+	    </div>
+	    
+	    <div class="form-group">
+		<label for="ReturnPolicyDescription" class="col-sm-2 control-label">Description</label>
+		<div class="col-sm-8">
+		    <textarea rows="4" class="form-control" name="ReturnPolicyDescription" placeholder="Return Policy Description" check-type="required">Return Policy Description</textarea>
+		</div>
+	    </div>
+	<hr>
+	<h2>Shipping Details</h2>
+	    <div class="form-group">
+		<label for="ShippingType" class="col-sm-2 control-label">Shipping Type</label>
+		<div class="col-sm-3">
+		    <select name="ShippingType" class="form-control" check-type="required">
+			<option value="Calculated">Calculated</option>
+			<option value="CalculatedDomesticFlatInternational">Calculated Domestic Flat International</option>
+			<option value="Flat" selected="true">Flat</option>
+			<option value="FlatDomesticCalculatedInternational">Flat Domestic Calculated International</option>
+			<option value="Free">Free</option>
+			<option value="Freight">Freight</option>
+			<option value="FreightFlat">FreightFlat</option>
+			<option value="NotSpecified">NotSpecified</option>
+		    </select>
+		</div>
+	    </div>
+	    
+	    <div class="form-group">
+		<label for="ShippingServicePriority" class="col-sm-2 control-label">Shipping Service Priority</label>
+		<div class="col-sm-3">
+		    <select name="ShippingServicePriority" class="form-control" check-type="required">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+		    </select>
+		</div>
+	    </div>
+	    
+	    <div class="form-group">
+		<label for="ShippingService" class="col-sm-2 control-label">Shipping Service</label>
+		<div class="col-sm-3">
+		    <select name="ShippingService" class="form-control" check-type="required">
+			<option value="USPSMedia">USPSMedia</option>
+		    </select>
+		</div>
+	    </div>
+	    
+	    <div class="form-group">
+		<label for="ShippingServiceCost" class="col-sm-2 control-label">Shipping Service Cost</label>
+		<div class="col-sm-2">
+		    <input type="text" class="form-control" name="ShippingServiceCost" placeholder="Shipping Service Cost" value="2.50" check-type="realnumber required">
+		</div>
+	    </div>
+	    
+	    <div class="form-actions modal-footer">
+		<button type="button" data-dismiss="modal" class="btn btn-default closeAddButton">Close</button>		
+		<button class="btn btn-danger" type="reset" >Reset</button>
+		<button class="btn btn-primary BtnAdd" type="submit" >Add</button>
+		
+	    </div>
+    </form>
+</div>
+<script>
+$(function(){
+    $("#additem").validation();
+    $(".BtnAdd").on('click',function(event){
+      if ($("#additem").valid()==false){
+	alert('Please check the red box.');
+        return false;
+      }
+    })
+})
+</script>
